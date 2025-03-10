@@ -17,7 +17,6 @@ public partial class Enemy : Entity
 	
 	public override void _PhysicsProcess(double delta) {
 		HandleMovement();
-		MoveAndSlide();
 	}
 	
 	private void HandleMovement() {
@@ -26,6 +25,7 @@ public partial class Enemy : Entity
 		Vector2 direction = (_player.GlobalPosition - GlobalPosition).Normalized();
 		
 		Velocity = direction * Speed;
+		MoveAndSlide();
 	}
 	
 	private void OnBodyEntered(Node2D body) {

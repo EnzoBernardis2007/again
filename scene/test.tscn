@@ -17,12 +17,6 @@ BulletScene = ExtResource("2_bp0px")
 ShootDelay = 0.1
 Health = 1000
 
-[node name="Enemy" parent="." instance=ExtResource("3_5u11y")]
-position = Vector2(428, 144)
-Speed = 100.0
-Damage = 100
-Health = 5
-
 [node name="UI" parent="." instance=ExtResource("5_1ifl7")]
 anchors_preset = 0
 anchor_right = 0.0
@@ -31,3 +25,9 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Enemy" parent="." instance=ExtResource("3_5u11y")]
+position = Vector2(446, 304)
+Speed = 100.0
+Damage = 10
+Health = 10
