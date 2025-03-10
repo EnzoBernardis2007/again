@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4fltv66dljf8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_em0b8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wywsn"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ydbfd"]
+normal = Vector2(-0.999987, 0.00499994)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_itbhy"]
+
+[node name="EnemySpawner" type="StaticBody2D"]
+
+[node name="LeftBoundary" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_em0b8")
+
+[node name="TopBoundary" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_wywsn")
+
+[node name="RightBoundary" type="CollisionShape2D" parent="."]
+position = Vector2(1153, 0)
+shape = SubResource("WorldBoundaryShape2D_ydbfd")
+
+[node name="BottomBoundary" type="CollisionShape2D" parent="."]
+position = Vector2(0, 650)
+shape = SubResource("WorldBoundaryShape2D_itbhy")

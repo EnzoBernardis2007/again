@@ -5,7 +5,7 @@ public partial class Entity : CharacterBody2D
 {
 	[Export] public int Health;
 	
-	public void TakeDamage(int damage) {
+	public virtual void TakeDamage(int damage) {
 		Health = Math.Max(Health - damage, 0);
 		
 		if(Health <= 0) {

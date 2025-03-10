@@ -10,11 +10,24 @@ public partial class Player : Entity
 	private bool _canShoot = true;
 	private Timer _shootTimer;
 	
+	private Control ui;
+	private TextureProgressBar healthBar;
+	
 	public override void _Ready() {
 		AddToGroup("player");
 		_shootTimer = GetNode<Timer>("ShootTimer");
 		_shootTimer.WaitTime = ShootDelay;
 		_shootTimer.Timeout += OnShootTimerTimeout;
+		
+		ui = GetNode<Control>("../UI");
+		healthBar = ui.GetNode<TextureProgressBar>("HBoxContainer/ColorRect/TextureProgressBar");
+		healthBar.MaxValue = Health;
+		UpdateHealthBar();
+	}
+	
+	private void UpdateHealthBar() {
+		healthBar.Value = Health;
+		GD.Print("Health updated: " + Health);
 	}
 	
 	public override void _PhysicsProcess(double delta) {
@@ -58,5 +71,10 @@ public partial class Player : Entity
 	
 	private void OnShootTimerTimeout() {
 		_canShoot = true;
+	}
+	
+	public override void TakeDamage(int damage) {
+		base.TakeDamage(damage);
+		UpdateHealthBar();
 	}
 }
