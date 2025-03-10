@@ -18,3 +18,5 @@ scale = Vector2(20, 20)
 mesh = SubResource("BoxMesh_xo3ru")
 
 [node name="ShootTimer" type="Timer" parent="."]
+
+[node name="InvicibilityTimer" type="Timer" parent="."]

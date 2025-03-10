@@ -15,6 +15,7 @@ position = Vector2(751, 92)
 Speed = 400.0
 BulletScene = ExtResource("2_bp0px")
 ShootDelay = 0.1
+InvicibilityDuration = 1.0
 Health = 1000
 
 [node name="UI" parent="." instance=ExtResource("5_1ifl7")]

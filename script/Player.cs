@@ -10,14 +10,17 @@ public partial class Player : Entity
 	private bool _canShoot = true;
 	private Timer _shootTimer;
 	
+	[Export] public float InvicibilityDuration;
+	private Timer _invicibilityTimer;
+	public bool _isInvicible = false;
+	
 	private Control ui;
 	private TextureProgressBar healthBar;
 	
 	public override void _Ready() {
 		AddToGroup("player");
-		_shootTimer = GetNode<Timer>("ShootTimer");
-		_shootTimer.WaitTime = ShootDelay;
-		_shootTimer.Timeout += OnShootTimerTimeout;
+		SetShootTimer();
+		SetInvicibilityTimer();
 		
 		ui = GetNode<Control>("../UI");
 		healthBar = ui.GetNode<TextureProgressBar>("HBoxContainer/ColorRect/TextureProgressBar");
@@ -25,15 +28,27 @@ public partial class Player : Entity
 		UpdateHealthBar();
 	}
 	
+	private void SetShootTimer() {
+		_shootTimer = GetNode<Timer>("ShootTimer");
+		_shootTimer.WaitTime = ShootDelay;
+		_shootTimer.Timeout += OnShootTimerTimeout;
+	}
+	
+	private void SetInvicibilityTimer() {
+		_invicibilityTimer = GetNode<Timer>("InvicibilityTimer");
+		_invicibilityTimer.WaitTime = InvicibilityDuration;
+		_invicibilityTimer.Timeout += OnInvicibilityTimerTimeout;
+	}
+	
 	private void UpdateHealthBar() {
 		healthBar.Value = Health;
-		GD.Print("Health updated: " + Health);
 	}
 	
 	public override void _PhysicsProcess(double delta) {
 		HandleMovement();
 		MoveAndSlide();
 		HandleShooting();
+		GD.Print(_isInvicible);
 	}
 	
 	private void HandleMovement() {
@@ -73,8 +88,15 @@ public partial class Player : Entity
 		_canShoot = true;
 	}
 	
+	private void OnInvicibilityTimerTimeout() {
+		_isInvicible = false;
+	}
+	
 	public override void TakeDamage(int damage) {
+		if(_isInvicible) return;
 		base.TakeDamage(damage);
+		_isInvicible = true;
+		_invicibilityTimer.Start();
 		UpdateHealthBar();
 	}
 }
