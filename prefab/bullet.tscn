@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3dbrfm5v1b0k"]
+
+[ext_resource type="Script" uid="uid://bfdxn8grd47my" path="res://script/Bullet.cs" id="1_53p6a"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_53p6a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cgejv"]
+
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("1_53p6a")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-3.27826e-07, 2.68221e-07)
+scale = Vector2(6.0068, 6)
+mesh = SubResource("SphereMesh_53p6a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_cgejv")

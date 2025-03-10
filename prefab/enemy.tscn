@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddh48f6w2w7oy"]
+
+[ext_resource type="Script" uid="uid://bby7b2bfeot75" path="res://script/Enemy.cs" id="1_yhipb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnhll"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yhipb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhipb"]
+size = Vector2(28, 28)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_yhipb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qnhll")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_yhipb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yhipb")
