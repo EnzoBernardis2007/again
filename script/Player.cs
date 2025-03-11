@@ -3,9 +3,11 @@ using System;
 
 public partial class Player : Entity
 {
-	[Export] public float Speed;
-	[Export] public PackedScene BulletScene;
-	[Export] public float ShootDelay;
+	public PlayerData playerData;
+	
+	public float Speed;
+	public PackedScene BulletScene;
+	public float ShootDelay;
 	
 	private bool _canShoot = true;
 	private Timer _shootTimer;
@@ -19,6 +21,9 @@ public partial class Player : Entity
 	
 	public override void _Ready() {
 		AddToGroup("player");
+
+		ApplyPlayerData();
+
 		SetShootTimer();
 		SetInvicibilityTimer();
 		
@@ -26,6 +31,14 @@ public partial class Player : Entity
 		healthBar = ui.GetNode<TextureProgressBar>("HBoxContainer/ColorRect/TextureProgressBar");
 		healthBar.MaxValue = Health;
 		UpdateHealthBar();
+	}
+
+	private void ApplyPlayerData() {
+		Health = playerData.Health;
+		Speed = playerData.Speed;
+		BulletScene = playerData.BulletScene;
+		ShootDelay = playerData.ShootDelay;
+		InvicibilityDuration = playerData.InvicibilityDuration;
 	}
 	
 	private void SetShootTimer() {
@@ -72,6 +85,11 @@ public partial class Player : Entity
 	}
 	
 	private void Shoot(Vector2 direction) {
+		if (BulletScene == null) {
+			GD.PrintErr("BulletScene is not assigned in PlayerData!");
+			return;
+		}
+
 		var bullet = BulletScene.Instantiate<Bullet>();
 		bullet.Direction = direction;
 		
