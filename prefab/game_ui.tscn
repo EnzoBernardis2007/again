@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d015i30kpr2h8" path="res://texture/prototype/Green/texture_01.png" id="3_gwpqc"]
 
 [node name="UI" type="Control"]
+top_level = true
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 15

@@ -48,7 +48,6 @@ public partial class Player : Entity
 		HandleMovement();
 		MoveAndSlide();
 		HandleShooting();
-		GD.Print(_isInvicible);
 	}
 	
 	private void HandleMovement() {

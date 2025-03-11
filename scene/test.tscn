@@ -9,6 +9,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_u3ux8")]
+EnemyScene = ExtResource("3_5u11y")
+SpawnDelay = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_fghjm")]
 position = Vector2(751, 92)
@@ -26,9 +28,3 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Enemy" parent="." instance=ExtResource("3_5u11y")]
-position = Vector2(446, 304)
-Speed = 100.0
-Damage = 10
-Health = 10
