@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_qqoru")
-Points = 0
+Points = 30
 Health = 100
 Damage = 10
 Speed = 300.0

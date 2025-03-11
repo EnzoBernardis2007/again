@@ -3,6 +3,7 @@ using System;
 
 public partial class Player : Entity
 {
+	[Signal] public delegate void OnQueueFreeEventHandler();
 	public PlayerData playerData;
 	
 	public float Speed;
@@ -117,5 +118,10 @@ public partial class Player : Entity
 		_isInvicible = true;
 		_invicibilityTimer.Start();
 		UpdateHealthBar();
+	}
+	
+	public override void Die() {
+		EmitSignal(nameof(OnQueueFree));
+		base.Die();
 	}
 }
