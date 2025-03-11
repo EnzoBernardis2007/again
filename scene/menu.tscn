@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://t1cprhgxlnk3"]
+
+[ext_resource type="Script" uid="uid://dhosekkimcvq6" path="res://script/Menu.cs" id="1_8hxod"]
+[ext_resource type="FontFile" uid="uid://d3ugsxxbtnqe2" path="res://pixeled/Pixeled.ttf" id="1_e5g8k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e5g8k"]
+font = ExtResource("1_e5g8k")
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8hxod")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "A.G.A.I.N"
+label_settings = SubResource("LabelSettings_e5g8k")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "PLAY."
