@@ -13,7 +13,7 @@ public partial class Entity : CharacterBody2D
 		}
 	}
 	
-	private void Die() {
+	public virtual void Die() {
 		QueueFree();
 	}
 }

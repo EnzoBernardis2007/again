@@ -5,6 +5,8 @@ public partial class Enemy : Entity
 {
 	[Export] public float Speed;
 	[Export] public int Damage;
+	[Export] public int PointsWorth;
+	public GameManager gameManager;
 	private CharacterBody2D _player;
 	private Area2D _damageArea;
 	private bool _dealDamage = false;
@@ -49,5 +51,10 @@ public partial class Enemy : Entity
 		if(!body.HasMethod("TakeDamage")) return;
 		
 		_dealDamage = true;
+	}
+	
+	public override void Die() {
+		gameManager.AccumulatedPoints += PointsWorth;
+		base.Die();
 	}
 }

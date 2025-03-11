@@ -6,13 +6,14 @@ public partial class Player : Entity
 	public PlayerData playerData;
 	
 	public float Speed;
+	public int Damage;
 	public PackedScene BulletScene;
 	public float ShootDelay;
+	public float InvicibilityDuration;
 	
 	private bool _canShoot = true;
 	private Timer _shootTimer;
 	
-	[Export] public float InvicibilityDuration;
 	private Timer _invicibilityTimer;
 	public bool _isInvicible = false;
 	
@@ -95,6 +96,7 @@ public partial class Player : Entity
 		
 		float offset = 30f;
 		bullet.GlobalPosition = GlobalPosition + (direction * offset);
+		bullet.Damage += Damage;
 		GetParent().AddChild(bullet);
 		
 		_canShoot = false;

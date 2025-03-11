@@ -1,3 +1,14 @@
-[gd_resource type="Resource" format=3 uid="uid://dyxqmqpr62cf1"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://prefab/bullet.tscn" id="1_gynob"]
+[ext_resource type="Script" path="res://script/PlayerData.cs" id="2_qqoru"]
 
 [resource]
+script = ExtResource("2_qqoru")
+Points = 0
+Health = 100
+Damage = 10
+Speed = 300.0
+BulletScene = ExtResource("1_gynob")
+ShootDelay = 0.5
+InvicibilityDuration = 2.0

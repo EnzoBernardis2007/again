@@ -2,11 +2,13 @@ using Godot;
 using System;
 
 [GlobalClass]
-public partial class PlayerData : Resource
+public partial class PlayerData : Resource 
 {
-	public int Health;
-	public float Speed;
-	public PackedScene BulletScene;
-	public float ShootDelay;
-	public float InvicibilityDuration;
+	[Export] public int Points { get; set; }
+	[Export] public int Health { get; set; }
+	[Export] public int Damage { get; set; }
+	[Export] public float Speed { get; set; }
+	[Export] public PackedScene BulletScene { get; set; }
+	[Export] public float ShootDelay { get; set; }
+	[Export] public float InvicibilityDuration { get; set; }
 }

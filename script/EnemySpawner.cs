@@ -4,6 +4,7 @@ using System;
 public partial class EnemySpawner : StaticBody2D
 {
 	[Export] public PackedScene EnemyScene;
+	[Export] public GameManager gameManager;
 	private Node2D[] _spawners = new Node2D[4];
 	private Random random = new Random();
 	private Timer _spawnTimer;
@@ -37,6 +38,7 @@ public partial class EnemySpawner : StaticBody2D
 	private void InstantiateEnemy(int position) {
 		var enemy = EnemyScene.Instantiate<Enemy>();
 		enemy.GlobalPosition = _spawners[position].GlobalPosition;
+		enemy.gameManager = gameManager;
 		GetParent().AddChild(enemy);
 	}
 }
