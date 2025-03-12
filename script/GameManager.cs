@@ -27,78 +27,28 @@ public partial class GameManager : Node2D
 		_menuScene = GD.Load<PackedScene>("res://scene/menu.tscn");
 	}
 	
-	private void OnPlayerQueueFree()
-{
-	// Adiciona pontos acumulados ao jogador e salva
-	_saveManager.Player.Points += AccumulatedPoints;
-	_saveManager.SavePlayer();
+	private void OnPlayerQueueFree() {
+		_saveManager.Player.Points += AccumulatedPoints;
+		_saveManager.SavePlayer();
 
-	// Obtém o container dos botões
-	HBoxContainer container = GetNodeOrNull<HBoxContainer>("UI/HBoxContainer/Spacer/DieMenu/HBoxContainer");
-	if (container == null) 
-	{
-		GD.PrintErr("Container não encontrado.");
-		return;
-	}
+		HBoxContainer container = GetNodeOrNull<HBoxContainer>("UI/HBoxContainer/Spacer/DieMenu/HBoxContainer");
 
-	// Obtém o botão de menu
-	Button menuButton = container.GetNodeOrNull<Button>("MenuButton");
-	if (menuButton != null)
-	{
+		Button menuButton = container.GetNodeOrNull<Button>("MenuButton");
 		menuButton.Pressed += OnMenuButtonPressed;
-	}
-	else
-	{
-		GD.PrintErr("Botão de menu não encontrado.");
-	}
 
-	// Obtém o botão de tentar novamente
-	Button againButton = container.GetNodeOrNull<Button>("AgainButton");
-	if (againButton != null)
-	{
+		Button againButton = container.GetNodeOrNull<Button>("AgainButton");
 		againButton.Pressed += OnAgainButtonPressed;
-	}
-	else
-	{
-		GD.PrintErr("Botão de tentar novamente não encontrado.");
-	}
 
-	// Torna o menu de morte visível
-	ColorRect dieMenu = GetNodeOrNull<ColorRect>("UI/HBoxContainer/Spacer/DieMenu");
-	if (dieMenu != null)
-	{
+		ColorRect dieMenu = GetNodeOrNull<ColorRect>("UI/HBoxContainer/Spacer/DieMenu");
 		dieMenu.Visible = true;
 	}
-	else
-	{
-		GD.PrintErr("Menu de morte não encontrado.");
-	}
-}
 
-	private void OnMenuButtonPressed()
-	{
-		// Carrega a cena do menu
-		if (_menuScene != null)
-		{
-			GetTree().ChangeSceneToPacked(_menuScene);
-		}
-		else
-		{
-			GD.PrintErr("Cena do menu não definida.");
-		}
+	private void OnMenuButtonPressed() {
+		GetTree().ChangeSceneToPacked(_menuScene);
 	}
 
-	private void OnAgainButtonPressed()
-	{
-		// Recarrega a cena atual
+	private void OnAgainButtonPressed() {
 		string currentScenePath = GetTree().CurrentScene.SceneFilePath;
-		if (!string.IsNullOrEmpty(currentScenePath))
-		{
-			GetTree().ChangeSceneToFile(currentScenePath);
-		}
-		else
-		{
-			GD.PrintErr("Falha ao obter o caminho da cena atual.");
-		}
+		GetTree().ChangeSceneToFile(currentScenePath);
 	}
 }

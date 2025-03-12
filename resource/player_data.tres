@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_qqoru")
-Points = 130
+Points = 0
 Health = 110
 Damage = 10
-Speed = 330.0
+Speed = 320.0
 BulletScene = ExtResource("1_gynob")
 ShootDelay = 0.5
 InvicibilityDuration = 2.0
