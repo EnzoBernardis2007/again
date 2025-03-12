@@ -80,7 +80,13 @@ public partial class Player : Entity
 	private void HandleShooting() {
 		if (!_canShoot) return;
 		
-		if(Input.IsActionPressed("shoot_up")) Shoot(Vector2.Up);
+		// Shoot on the diagonals
+		if(Input.IsActionPressed("shoot_up") && Input.IsActionPressed("shoot_right")) Shoot((Vector2.Up + Vector2.Right).Normalized());
+		else if(Input.IsActionPressed("shoot_up") && Input.IsActionPressed("shoot_left")) Shoot((Vector2.Up + Vector2.Left).Normalized());
+		else if(Input.IsActionPressed("shoot_down") && Input.IsActionPressed("shoot_right")) Shoot((Vector2.Down + Vector2.Right).Normalized());
+		else if(Input.IsActionPressed("shoot_down") && Input.IsActionPressed("shoot_left")) Shoot((Vector2.Down + Vector2.Left).Normalized());
+		
+		else if(Input.IsActionPressed("shoot_up")) Shoot(Vector2.Up);
 		else if(Input.IsActionPressed("shoot_down")) Shoot(Vector2.Down);
 		else if(Input.IsActionPressed("shoot_right")) Shoot(Vector2.Right);
 		else if(Input.IsActionPressed("shoot_left")) Shoot(Vector2.Left);

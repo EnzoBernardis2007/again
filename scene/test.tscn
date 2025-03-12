@@ -21,3 +21,8 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="HBoxContainer" parent="UI/HBoxContainer/Spacer/DieMenu" index="0"]
+alignment = 1
+
+[editable path="UI"]

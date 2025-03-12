@@ -40,6 +40,39 @@ tint_under = Color(0.366595, 0.366595, 0.366595, 1)
 custom_minimum_size = Vector2(648, 648)
 layout_mode = 2
 
+[node name="DieMenu" type="ColorRect" parent="HBoxContainer/Spacer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.654902)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Spacer/DieMenu"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AgainButton" type="Button" parent="HBoxContainer/Spacer/DieMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "AGAIN."
+
+[node name="MenuButton" type="Button" parent="HBoxContainer/Spacer/DieMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "MENU."
+
 [node name="ColorRect2" type="ColorRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
