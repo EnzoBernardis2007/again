@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c1gkv0gpnjtpg"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2

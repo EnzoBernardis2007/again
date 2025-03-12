@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dawctew8xe60o"]
+
+[ext_resource type="Script" uid="uid://cn5yvrmjjnr01" path="res://script/Shop.cs" id="1_4p3p6"]
+[ext_resource type="FontFile" uid="uid://d3ugsxxbtnqe2" path="res://pixeled/Pixeled.ttf" id="1_iuafe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_phbgv"]
+font = ExtResource("1_iuafe")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4p3p6"]
+font = ExtResource("1_iuafe")
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4p3p6")
+
+[node name="GoBackButton" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_iuafe")
+text = "GO BACK"
+
+[node name="Points" type="Label" parent="."]
+top_level = true
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "texto exemplo"
+label_settings = SubResource("LabelSettings_phbgv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SHOP"
+label_settings = SubResource("LabelSettings_4p3p6")

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class PlayerData : Resource 
@@ -11,4 +12,15 @@ public partial class PlayerData : Resource
 	[Export] public PackedScene BulletScene { get; set; }
 	[Export] public float ShootDelay { get; set; }
 	[Export] public float InvicibilityDuration { get; set; }
+	
+	public Dictionary<string, AttributesDetails> Attributes { get; set; } = new();
+	
+	public void InitializeAttributes() {
+		Attributes = new Dictionary<string, AttributesDetails> 
+		{
+			{ "Health", new AttributesDetails { AttributeName = "Health", Gain = 10, Price = 100 } },
+			{ "Damage", new AttributesDetails { AttributeName = "Damage", Gain = 1, Price = 100 } },
+			{ "Speed", new AttributesDetails { AttributeName = "Spped", Gain = 10, Price = 100 } },
+		};
+	}
 }
