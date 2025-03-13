@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddh48f6w2w7oy"]
+[gd_scene load_steps=5 format=3 uid="uid://ct22p5i5byx5o"]
 
-[ext_resource type="Script" uid="uid://bby7b2bfeot75" path="res://script/Enemy.cs" id="1_yhipb"]
+[ext_resource type="Script" uid="uid://bby7b2bfeot75" path="res://script/Enemy.cs" id="1_seu7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhipb"]
 
@@ -10,14 +10,16 @@
 size = Vector2(28, 28)
 
 [node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_yhipb")
-Speed = 100.0
-Damage = 50
-PointsWorth = 10
-Health = 10
+script = ExtResource("1_seu7m")
+Speed = 50.0
+Damage = 75.0
+PointsWorth = 20
+DificultyLevel = 2
+Health = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yhipb")

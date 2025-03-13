@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddh48f6w2w7oy"]
+
+[ext_resource type="Script" uid="uid://bby7b2bfeot75" path="res://script/Enemy.cs" id="1_yhipb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhipb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wfpsj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqltm"]
+size = Vector2(28, 28)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_yhipb")
+Speed = 200.0
+Damage = 25.0
+PointsWorth = 20
+DificultyLevel = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yhipb")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(21.1878, 19.8999)
+mesh = SubResource("BoxMesh_wfpsj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_sqltm")

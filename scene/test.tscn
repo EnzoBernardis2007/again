@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2t7x1qo52bmg"]
+[gd_scene load_steps=4 format=3 uid="uid://d2t7x1qo52bmg"]
 
 [ext_resource type="Script" uid="uid://b6snviqkuyh5x" path="res://script/GameManager.cs" id="1_hngkw"]
-[ext_resource type="PackedScene" uid="uid://ddh48f6w2w7oy" path="res://prefab/enemy.tscn" id="3_5u11y"]
 [ext_resource type="PackedScene" uid="uid://c4fltv66dljf8" path="res://prefab/enemy_spawner.tscn" id="4_u3ux8"]
 [ext_resource type="PackedScene" uid="uid://c5wo3llq4wqv6" path="res://prefab/game_ui.tscn" id="5_1ifl7"]
 
@@ -9,7 +8,6 @@
 script = ExtResource("1_hngkw")
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("gameManager") instance=ExtResource("4_u3ux8")]
-EnemyScene = ExtResource("3_5u11y")
 gameManager = NodePath("..")
 SpawnDelay = 2.0
 
@@ -21,8 +19,3 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="HBoxContainer" parent="UI/HBoxContainer/Spacer/DieMenu" index="0"]
-alignment = 1
-
-[editable path="UI"]

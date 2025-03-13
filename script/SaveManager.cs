@@ -28,7 +28,7 @@ public partial class SaveManager : Node
 		Player = new PlayerData {
 			Points = 0,
 			Health = 100,
-			Damage = 10,
+			Damage = 1f,
 			Speed = 300f,
 			BulletScene = GD.Load<PackedScene>("res://prefab/bullet.tscn"),
 			ShootDelay = 0.5f,

@@ -7,7 +7,7 @@ public partial class Player : Entity
 	public PlayerData playerData;
 	
 	public float Speed;
-	public int Damage;
+	public float Damage;
 	public PackedScene BulletScene;
 	public float ShootDelay;
 	public float InvicibilityDuration;
@@ -38,6 +38,7 @@ public partial class Player : Entity
 	private void ApplyPlayerData() {
 		Health = playerData.Health;
 		Speed = playerData.Speed;
+		Damage = playerData.Damage;
 		BulletScene = playerData.BulletScene;
 		ShootDelay = playerData.ShootDelay;
 		InvicibilityDuration = playerData.InvicibilityDuration;
@@ -103,7 +104,7 @@ public partial class Player : Entity
 		
 		float offset = 30f;
 		bullet.GlobalPosition = GlobalPosition + (direction * offset);
-		bullet.Damage += Damage;
+		bullet.Damage *= Damage;
 		GetParent().AddChild(bullet);
 		
 		_canShoot = false;
@@ -118,7 +119,7 @@ public partial class Player : Entity
 		_isInvicible = false;
 	}
 	
-	public override void TakeDamage(int damage) {
+	public override void TakeDamage(float damage) {
 		if(_isInvicible) return;
 		base.TakeDamage(damage);
 		_isInvicible = true;

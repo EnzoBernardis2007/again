@@ -4,7 +4,7 @@ using System;
 public partial class Bullet : CharacterBody2D
 {
 	[Export] public float Speed = 500f; 
-	[Export] public int Damage = 1;
+	[Export] public float Damage;
 	private Area2D _area;
 	public Vector2 Direction = Vector2.Right;
 	

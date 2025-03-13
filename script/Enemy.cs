@@ -3,15 +3,18 @@ using System;
 
 public partial class Enemy : Entity
 {
+	public EnemySpawner enemySpawner;
 	[Export] public float Speed;
-	[Export] public int Damage;
+	[Export] public float Damage;
 	[Export] public int PointsWorth;
+	[Export] public int DificultyLevel;
 	public GameManager gameManager;
 	private CharacterBody2D _player;
 	private Area2D _damageArea;
 	private bool _dealDamage = false;
 	
 	public override void _Ready() {
+		enemySpawner = GetNode<EnemySpawner>("../EnemySpawner");
 		AddToGroup("enemy");
 		_player = GetNode<CharacterBody2D>("../Player");
 		_damageArea = GetNode<Area2D>("Area2D");
@@ -55,6 +58,7 @@ public partial class Enemy : Entity
 	
 	public override void Die() {
 		gameManager.AccumulatedPoints += PointsWorth;
+		enemySpawner.totalDificulty -= DificultyLevel;
 		base.Die();
 	}
 }

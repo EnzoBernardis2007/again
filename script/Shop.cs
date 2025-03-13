@@ -54,7 +54,6 @@ public partial class Shop : Control
 	
 	private void OnUpgradeButtonPressed(string attributeName, AttributesDetails details) {
 		if(_saveManager.Player.Points < details.Price) {
-			GD.Print("nao tem dinheiro");
 			return;
 		}
 		

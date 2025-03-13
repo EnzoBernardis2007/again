@@ -8,7 +8,7 @@
 
 [node name="Bullet" type="CharacterBody2D"]
 script = ExtResource("1_53p6a")
-Damage = 500
+Damage = 10.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(-3.27826e-07, 2.68221e-07)
